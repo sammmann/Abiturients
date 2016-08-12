@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/form_style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="styles/reset.css" type="text/css" media="all">
+    <link rel="stylesheet" href="styles/style.css" type="text/css" media="all">
+    <title><?= $title?></title>
+</head>
+<body>
+
+<div id="form_errors">
+    <?php include_once($tmp_errors); ?>
+</div>
+
+<div id="abt_form">
+    <?php include_once($tmp); ?>
+ </div>
+<br>
+<div id="back_btn">
+    <a href="index.php">
+        <button>Назад</button>
+    </a>
+</div>
+
+<?php include_once("../views/footer.html"); ?>
+</body>
+</html>

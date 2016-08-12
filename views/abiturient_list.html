@@ -1,0 +1,131 @@
+<div id="list_wrapper">
+
+    <form method="get" action="#">
+        <table id="list_table">
+            <tr id="table_title">
+                <th colspan="1">Список абитуриентов</th>
+                <th colspan="3" class="text_align_right" >Поиск: </th>
+
+                    <th colspan="1">
+
+                        <input type="search" name="search_query" title="Введите значение для поиска" size="20px"
+                        placeholder="поиск..."/>
+
+                    </th>
+
+                <th>
+                    <input type="submit" name="search" title="Искать" value="Искать" />
+                </th>
+
+            </tr>
+
+            <tr class="bottom_border_dash">
+                <th>
+                    <span class="<?php echo $orderBy == 'abt_name' ?  'order_span' : ''; ?>">
+                        <a href="<?= LinkMaker::makeOrderByLink('abt_name', $pagenator, $query_link_string); ?>" >Имя</a>
+                    </span>
+                </th>
+                <th>
+                    <span class="<?php echo $orderBy == 'abt_second' ?  'order_span' : ''; ?>">
+                        <a href="<?= LinkMaker::makeOrderByLink('abt_second', $pagenator, $query_link_string); ?>" >Фамилия</a>
+                    </span>
+                </th>
+                <th>
+                    <span class="<?php echo $orderBy == 'abt_group' ?  'order_span' : ''; ?>">
+                         <a href="<?= LinkMaker::makeOrderByLink('abt_group', $pagenator, $query_link_string); ?>" >Номер группы</a>
+                    </span>
+                </th>
+                <th>
+                    <span>Фотография</span>
+                </th>
+                <th>
+                    <span class="<?php echo $orderBy == 'abt_points' ?  'order_span' : ''; ?>">
+                     <a href="<?= LinkMaker::makeOrderByLink('abt_points', $pagenator, $query_link_string); ?>" >Баллы</a>
+                    </span>
+                </th>
+                <th id="order" class="text_align_left">
+                    <?php if ($sorted == "DESC") : ?>
+                        <a href="<?= LinkMaker::makeSortLinkAsc($pagenator , $orderBy, $query_link_string); ?>">
+                            <div id='triangle_down' align='right'> </div>
+                        </a>
+                    <?php else : ?>
+                        <a href="<?= LinkMaker::makeSortLinkDesc($pagenator, $orderBy, $query_link_string); ?>">
+                            <div id='triangle_up' align='right'> </div>
+                        </a>
+                    <?php endif; ?>
+                </th>
+            </tr>
+            <?php if ((UserQueryAnalyser::$validQuery) && $searchGo): ?>
+
+                <?php if (isset($_GET['search'])): ?>
+                    <tr>
+                        <td colspan="6">
+                            <span>Показаны только абитуриенты, найденные по запросу: "<?= $search_query ?>" </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="6">
+                            <span>Количество найденных абитуриентов: <?= $search_result ?> </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="6">
+                            <hr>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+
+            <?php elseif($searchGo): ?>
+
+                <tr>
+                    <td colspan="6">
+                        <span>Неправильный поисковый запрос: <?= UserQueryAnalyser::$errorsInTheQuery ?> </span>
+                    </td>
+                </tr>
+            <?php endif; ?>
+
+            <?php foreach($abiturientList as $abiturient): ?>
+                <tr id="list_layout">
+
+                    <td class="add_padding">
+                        <?php if ($searchGo) : ?>
+                            <?= HighLighter::highlight($abiturient->abt_name); ?>
+                        <?php else : ?>
+                            <span><?= $abiturient->abt_name; ?></span>
+                        <?php endif; ?>
+                    </td>
+
+                    <td>
+                        <?php if ($searchGo) : ?>
+                            <?= HighLighter::highlight($abiturient->abt_second, true); ?>
+                        <?php else : ?>
+                            <span><?= $abiturient->abt_second; ?></span>
+                        <?php endif; ?>
+                    </td>
+
+                    <td><?= $abiturient->abt_group; ?></td>
+                    <td>
+                        <?php if(!$abiturient->abt_photo) : ?>
+                            <img src="img/default_image.jpg" title="Фото не выбрано" width="30px" height="30px"
+                                class="round_photo">
+                        <?php else: ?>
+                            <img src="img/photos/<?= $abiturient->abt_photo ?>" title="Фото" width="30px" height="30px"
+                                 class="round_photo">
+                        <?php endif; ?>
+                    </td>
+                    <td><?= $abiturient->abt_points; ?></td>
+                </tr>
+                <?php endforeach ?>
+
+            <tr>
+                <td id="last_row" class="add_padding" >...</td>
+            </tr>
+            <tr>
+                <td id="empty_row" class="bottom_border_dash" colspan="6"></td>
+            </tr>
+        </table>
+    </form>
+
+</div>

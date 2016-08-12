@@ -1,0 +1,15 @@
+<div>
+    <div id="page_buttons">
+        <a href="<?= $prevPage; ?>"><button>назад</button></a>
+        <a href="<?= $nextPage; ?>"><button>вперед</button></a>
+    </div>
+
+    <div id="page_list">
+        <?php foreach($link_list as $page_link) : ?>
+            <a href="<?= $page_link; ?>"
+               class="<?= $pagenator->curr_page == ((array_search ($page_link, $link_list)) + 1) ? 'curr_page' : ''; ?>">
+                <span>[<?= ((array_search ($page_link, $link_list)) + 1); ?>]</span>
+            </a>
+        <?php endforeach; ?>
+    </div>
+</div>

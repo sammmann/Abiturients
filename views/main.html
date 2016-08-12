@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="styles/list_styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="styles/reset.css" type="text/css" media="all">
+    <title>Abiturient's list</title>
+</head>
+<body>
+
+
+<section id="main content">
+
+    <header>
+        <nav id="nav_bar" class="bottom_shadow">
+            <ul>
+                <li id="home_tab" class="tab"><a href="index.php">Домой</a></li>
+                <li id="edit_tab" class="tab"><a href= "<?= $link ?>" ><?= $is_new?></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="main_wrapper">
+        <div id="abt_list">
+            <?php include_once($tmp); ?>
+        </div>
+
+        <?php if ($pagenator->total_pages > 1): ?>
+            <div id="pagenator">
+                <?php include_once($pagenator->pagesOnScreen); ?>
+            </div>
+        <?php endif; ?>
+    </div>
+
+</section>
+
+<?php include_once("../views/footer.html"); ?>
+
+</body>
+</html>

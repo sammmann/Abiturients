@@ -1,0 +1,77 @@
+/* Файл содержит стили форм */
+
+
+/* ID элементы */
+
+#reg_form input{
+    display: block;
+}
+
+#reg_form{
+    position: fixed;
+    left: 42%;
+    background: rgba(255, 255, 255, .2);
+    border: 1px groove rgba(255, 1, 255, .3);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
+    padding: 10px;
+    border-radius: 15px;
+    width: 16%;
+}
+
+#reg_form input, select{
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: center;
+    display: block;
+}
+
+#reg_form label{
+    font-weight: bold;
+
+}
+
+#submit_btn{
+    position: relative;
+    left: 30%;
+    width: 100px;
+    height: 50px;
+
+}
+
+#back_btn{
+    position: fixed;
+    top: 88%;
+    left: 43%;
+}
+
+#form_errors{
+    position: fixed;
+    float: left;
+    background: rgba(255, 1, 255, .3);
+    border: 1px groove rgba(255, 1, 255, .3);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
+    padding: 10px;
+    border-radius: 15px;
+    left: 15%;
+
+}
+
+#form_errors h3{
+    font-weight: bold;
+}
+
+#form_errors ul{
+    text-align: center;
+}
+
+#form_errors li{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: underline;
+}
+
+    /* Класс элементы */
+
+.err_field {
+    border: 3px solid red;
+}

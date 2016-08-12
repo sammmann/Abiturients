@@ -1,0 +1,93 @@
+body{
+
+}
+
+#list_wrapper{
+    padding: 10px;
+}
+
+#list_table{
+    text-align: center;
+}
+
+#list_table th, td{
+   padding: 15px;
+    border: 1px solid black;
+}
+
+#table_title{
+
+}
+
+#list_layout tr{
+    margin: 5px;
+}
+
+#empty_row{
+    text-align: left;
+}
+
+#triangle_down{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid black;
+}
+
+#triangle_up{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid black;
+}
+
+#order{
+
+}
+
+input[type=submit]{
+
+}
+
+
+/* CLASSES STYLES*/
+
+.bottom_border_dash{
+    border-bottom: 1px dashed black;
+}
+
+.text_align_right{
+    text-align: right;
+}
+
+.text_align_left{
+    text-align: left;
+}
+
+.send_submit{
+    cursor: hand;
+    width: 30px;
+}
+
+.add_padding{
+    padding: 20px;
+}
+
+.order_span a{
+    color: red;
+    text-decoration: underline;
+}
+
+.curr_page span{
+    color: red;
+}
+
+.highlight{
+    background: red;
+    color: black;
+}
+
+
+

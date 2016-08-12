@@ -1,0 +1,147 @@
+/* Файл содержит основные стили сайта */
+
+
+/* Элементы страницы */
+body{
+    background-image: url("../img/background.jpg");
+}
+
+a:link, a:visited, a:active{
+    text-decoration: none;
+    color: white;
+    display: inline;
+}
+
+a:hover{
+    color: red;
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+/* ID элементы */
+
+#nav_bar{
+    position: fixed;
+    width: 40%;
+    top: 0;
+    right: 0;
+    left: 30%;
+    cursor: pointer;
+    height: 40px;
+    text-shadow: 1px 1px 1px black;
+    background: rgba(0, 0, 0, .25);
+
+    box-shadow: inset 0 0 rgba(255, 255, 255, .3),
+    inset 0 10px 5px rgba(255, 255, 255, .2),
+    inset 0 10px 20px rgba(255, 255, 255, .25),
+    inset 0 -15px 20px rgba(255, 255, 255, .3);
+    color: rgb(208, 208, 208);
+    font-size: 24px;
+}
+
+#nav_bar a:hover{
+    color: white;
+}
+
+#home_tab{
+    width: 50%;
+}
+
+#edit_tab{
+    width: 50%;
+    left: 50%;
+}
+
+#main_wrapper{
+    position: fixed;
+    top: 10%;
+    right: 0;
+    left: 27%;
+}
+
+#pagenator{
+    position: fixed;
+    right: 47%;
+}
+
+#page_list{
+    position: relative;
+    padding-top: 20px;
+    right: -9px;
+}
+
+#list_table{
+
+}
+
+
+/* CLASS элементы */
+
+.bottom_shadow{
+    position: fixed;
+    width: 20%;
+    top: 38px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(0, 0, 0, 0);
+    box-shadow: inset 0 10px 10px rgba(255, 255, 255, .3);
+}
+
+.tab{
+    float: left;
+    position: absolute;
+    font-family: "Comic Sans MS", "ARIAL", "Times New Roman";
+    border-right: 2px solid rgba(255, 255, 255, .4);
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.tab:hover{
+    background: rgba(0, 0, 0, .3);
+    color: red;
+    -webkit-animation-name: moveDown;
+    -moz-animation-name:  moveDown;
+    -o-animation-name:  moveDown;
+    animation-name:  moveDown;
+    animation-fill-mode: forwards;
+    animation-duration: .5s;
+}
+
+@keyframes moveDown {
+    0% {}
+    100% {
+        line-height: 43px;
+        box-shadow: inset 0 10px 10px rgba(255, 1, 255, .3);
+        height: 41px;
+    }
+}
+
+.round_photo{
+    border-radius: 100px;
+    border: 2px solid deepskyblue;
+    box-shadow: inset 0 0 7px #666;
+    -moz-box-shadow: 0 0 7px #666;
+
+}
+
+
+/*Media for screens*/
+
+@media only screen and (max-width: 600px) {
+    a:link, a:visited, a:hover, a:active{
+        display: block;
+    }
+
+    ul, li{
+        display: block;
+    }
+}

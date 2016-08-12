@@ -1,0 +1,51 @@
+<form method="post" action="register.php" id="reg_form" enctype="multipart/form-data">
+    <label>Имя:</label>
+    <input type="text" name="abt_name" title="Input your name" value="<?= htmlspecialchars($abiturient->abt_name); ?>"
+           class="<?php if(in_array('Name', Validator::$error_fields)) echo 'err_field'; ?>" />
+    <br><br><label>Фамилия:</label>
+    <input type="text" name="abt_second" title="Input your second name" value="<?= htmlspecialchars($abiturient->abt_second); ?>"
+           class="<?php if(in_array('Second', Validator::$error_fields)) echo 'err_field'; ?>"/>
+    <br><label>Пол:</label>
+    <select name="abt_gender">
+        <?php if ($abiturient_gender == 'male') : ?>
+            <option value="1" selected>М</option>
+            <option value="2">Ж</option>
+        <?php else : ?>
+            <option value="1">М</option>
+            <option value="2" selected>Ж</option>
+        <?php endif; ?>
+    </select> <br>
+    <br><label>Группа:</label>
+    <input type="text" name="abt_group" title="Input your group" value="<?= htmlspecialchars($abiturient->abt_group); ?>"
+           class="<?php if(in_array('Group', Validator::$error_fields)) echo 'err_field'; ?>"/>
+    <br><label>Email:</label>
+    <input type="text" name="abt_email" title="Input your email" value="<?= htmlspecialchars($abiturient->abt_email); ?>"
+           class="<?php if(in_array('Email', Validator::$error_fields)) echo 'err_field'; ?>"/>
+    <br><label>Баллы на ЕГЭ:</label>
+    <input type="text" name="abt_points" title="Input your points" value="<?= htmlspecialchars($abiturient->abt_points); ?>"
+           class="<?php if(in_array('Points', Validator::$error_fields)) echo 'err_field'; ?>"/>
+    <br><label>Год рождения:</label>
+    <input type="text" name="abt_birth_year" title="Input your birth year" value="<?= htmlspecialchars($abiturient->abt_birth_year); ?>"
+           class="<?php if(in_array('Birth', Validator::$error_fields)) echo 'err_field'; ?>"/>
+    <br><label>Местный?</label>
+    <?php if ($abiturient_is_local == 0) : ?>
+        <input type="checkbox" name="abt_is_local" title="Are you local?" value="<?= $abiturient->abt_is_local; ?>" />
+    <?php else : ?>
+        <input type="checkbox" name="abt_is_local" title="Are you local?" value="<?= $abiturient->abt_is_local; ?>" checked />
+    <?php endif; ?>
+    <br><label>Ваше фото:</label>
+    <?php if ($abiturient_photo) : ?>
+        <div>
+            <img src="img/photos/<?= $abiturient_photo ?>" title="Ваше фото" width="100px" height="100px"
+                 class="round_photo">
+        </div>
+    <?php else : ?>
+        <div>
+            <img src="img/default_image.jpg" title="Фото не выбрано" width="100px" height="100px">
+        </div>
+    <?php endif; ?>
+    <input type="file" name="abt_photo" title="Ваша фотография" />
+
+    <input id="submit_btn" type="submit" name="reg" value="<?= $btn_title ?>" />
+</form>
+
